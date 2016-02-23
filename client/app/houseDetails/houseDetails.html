@@ -33,10 +33,11 @@
       <form class="bid-form">
         <label>Place your bid below:</label>
         <p class="input-group">
-          <input type="text" class="form-control" placeholder="$$$" ng-model="house.newBid">
+          <input type="text" class="form-control" placeholder="Your Name" ng-model="house.newBid.name">
+          <input type="text" class="form-control" placeholder="$$$" ng-model="house.newBid.price">
         </p>
         <span class="">
-          <button type="submit" class="btn btn-primary" ng-click="re.placeBid()">Place Bid</button>
+          <button type="submit" class="btn btn-primary" ng-click="house.placeBid()">Place Bid</button>
         </span>
       </form>
     </div>

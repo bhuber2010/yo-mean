@@ -7,7 +7,7 @@ var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/:id', controller.show);
-router.get('/:id/bids', controller.getBids);
+// router.get('/:id/bids', controller.getBids);
 router.post('/', controller.create);
 // router.post('/:id/bids', controller.postBid);
 router.put('/:id', controller.update);

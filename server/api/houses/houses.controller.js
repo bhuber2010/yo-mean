@@ -23,7 +23,8 @@ function respondWithResult(res, statusCode) {
 
 function saveUpdates(updates) {
   return function(entity) {
-    var updated = _.merge(entity, updates);
+    var bid = entity.bids.push(updates)
+    var updated = _.merge(entity, bid);
     return updated.saveAsync()
       .spread(updated => {
         return updated;
@@ -75,14 +76,15 @@ export function show(req, res) {
 }
 
 // Gets Bids on a single House
-export function getBids(req, res) {
-  Houses.findByIdAsync(req.params.id)
-    .then(house => {
-      console.log(house);
-    })
-    .then(respondWithResult(res))
-    .catch(handleError(res));
-}
+// export function getBids(req, res) {
+//   var house = req.params.id;
+//   Houses.findByIdAsync()
+//     .then(house => {
+//       console.log(house);
+//     })
+//     .then(respondWithResult(res))
+//     .catch(handleError(res));
+// }
 
 // Creates a new House in the DB
 export function create(req, res) {
