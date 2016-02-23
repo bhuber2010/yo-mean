@@ -1,0 +1,31 @@
+<div class="container">
+
+<div class="row">
+  <h1 class="page-header">Houses</h1>
+  <div class="col-sm-6 col-md-4" ng-repeat="house in re.houses">
+    <div class="thumbnail">
+      <img ng-src="{{house.pic}}" alt="...">
+      <div class="caption">
+        <h3>{{house.name}}</h3>
+        <p>{{house.info}}</p>
+        <p>
+          <a ui-sref="aHouse({id: house._id})" class="btn btn-primary" role="button">Details</a>
+          <a href="#" role="button" class="btn btn-danger" ng-show="re.isAdmin()" ng-click="re.deleteHouse(house)">Delete</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <form class="house-form">
+    <label>Add a new house:</label>
+    <p class="input-group">
+      <input type="text" class="form-control" placeholder="House Address" ng-model="re.newHouse.name">
+      <input type="text" class="form-control" placeholder="Details" ng-model="re.newHouse.info">
+      <input type="text" class="form-control" placeholder="Picture" ng-model="re.newHouse.pic">
+    </p>
+    <span class="">
+      <button type="submit" class="btn btn-primary" ng-click="re.addHouse()">Add House</button>
+    </span>
+  </form>
+</div>
